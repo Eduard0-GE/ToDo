@@ -1,0 +1,5 @@
+{
+    "task1":["Estudar Flask", false], 
+    "task2":["Olhar Preço Converse", true], 
+    "task3":["Comprar Calça Jogger", false] 
+}
