@@ -1,5 +1,5 @@
 from PyQt5.QtWidgets import QApplication, QWidget, QGroupBox, QGridLayout, QPushButton
-from module_pack.todo_copy import ToDoDialog
+from module_pack.todo import ToDoDialog
 
 #Main Window Class
 class ToDoMainWindow(QWidget):

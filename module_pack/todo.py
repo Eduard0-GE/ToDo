@@ -4,7 +4,7 @@ import json
 class ToDoDialog(QDialog):
     def __init__(self):
         super().__init__()
-        self.path = f'/home/heero/Documentos/Grandes Projetos/newtodo/task_lists/task1.json'
+        self.path = f'/home/heero/Documentos/projetos/python/newtodo/task_lists/task1.json'
         self.setWindowTitle('archiveName')
         self.setGeometry(200, 200, 300, 200)
         self.dict = {}
