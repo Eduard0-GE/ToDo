@@ -1,5 +1,1 @@
-{
-    "task1":["Estudar Flask", false], 
-    "task2":["Olhar Preço Converse", true], 
-    "task3":["Comprar Calça Jogger", false] 
-}
+{"task1": ["Estudar PyQt", true], "task2": ["Olhar Pre\u00e7o da Placa de V\u00eddeo", false], "task3": ["Ganhar Presente", true]}

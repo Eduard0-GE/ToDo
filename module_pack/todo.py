@@ -10,26 +10,28 @@ class ToDoDialog(QDialog):
         self.dict = {}
         self.taskDict()
         self.ToDoLayout()
-        print(len(self.dict))
 
     def taskDict(self):
         with open(self.path, 'r') as jFile:
             self.dict = json.load(jFile)
             for key in self.dict:
-                #print(self.dict)
-                #print(key)
                 self.dict[key].append(QCheckBox())
                 self.dict[key].append(QLineEdit())
-                #print(self.dict[key][0])
-                #print(self.dict[key][1])
-                #print(self.dict[key][2])
-                #print(self.dict[key][3])
     
     def newTask(self):
-        print(len(self.dict))
-        self.dict[f'task{len(self.dict)+1}'] = ['', False, QCheckBox, QLineEdit]
-        self.todoLayout.addWidget(self.dict[f'task{len(self.dict)-1}'][2](), len(self.dict), 0)
-        self.todoLayout.addWidget(self.dict[f'task{len(self.dict)-1}'][3](), len(self.dict), 1, 1, 3)
+        self.dict[f'task{len(self.dict)+1}'] = ['', False, QCheckBox(), QLineEdit()]
+        self.todoLayout.addWidget(self.dict[f'task{len(self.dict)}'][2], len(self.dict), 0)
+        self.todoLayout.addWidget(self.dict[f'task{len(self.dict)}'][3], len(self.dict), 1, 1, 3)
+    
+    def saveToDo(self):
+        #Runs trough the dict, changes the values and excludes the functions
+        for key in self.dict:
+            self.dict[key][0] = self.dict[key][3].text()
+            self.dict[key][1] = self.dict[key][2].isChecked()
+            del self.dict[key][2]
+            del self.dict[key][2]
+        with open(self.path, 'w') as jFile:
+            jFile.write(json.dumps(self.dict))
         
     def ToDoLayout(self):
         self.todoLayout = QGridLayout()
@@ -46,7 +48,7 @@ class ToDoDialog(QDialog):
         self.add_todo.clicked.connect(self.newTask)
         
         self.save_todo = QPushButton('Save')
-        self.save_todo.clicked.connect(self.newTask)
+        self.save_todo.clicked.connect(self.saveToDo)
         
         self.cancel_todo = QPushButton('Cancel')
         self.cancel_todo.clicked.connect(self.newTask)
