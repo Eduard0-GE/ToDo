@@ -16,14 +16,14 @@ class ToDoDialog(QDialog):
         with open(self.path, 'r') as jFile:
             self.dict = json.load(jFile)
             for key in self.dict:
-                print(self.dict)
-                print(key)
-                self.dict[key].append(QCheckBox)
-                self.dict[key].append(QLineEdit)
-                print(self.dict[key][0])
-                print(self.dict[key][1])
-                print(self.dict[key][2])
-                print(self.dict[key][3])
+                #print(self.dict)
+                #print(key)
+                self.dict[key].append(QCheckBox())
+                self.dict[key].append(QLineEdit())
+                #print(self.dict[key][0])
+                #print(self.dict[key][1])
+                #print(self.dict[key][2])
+                #print(self.dict[key][3])
     
     def newTask(self):
         print(len(self.dict))
@@ -34,14 +34,14 @@ class ToDoDialog(QDialog):
     def ToDoLayout(self):
         self.todoLayout = QGridLayout()
         for key in self.dict:
-            #Adding checkbox
-            self.todoLayout.addWidget(self.dict[key][2](), int(key[4]), 0)
-            self.dict[key][2]().setChecked(self.dict[key][1])
-            
             #Adding lineedit
-            self.todoLayout.addWidget(self.dict[key][3](), int(key[4]), 1, 1, 3)
-            self.dict[key][3]().setText(self.dict[key][0])
-        
+            self.dict[key][3].setText(self.dict[key][0])
+            self.todoLayout.addWidget(self.dict[key][3], int(key[4]), 1, 1, 3)
+            
+            #Adding checkbox
+            self.dict[key][2].setChecked(self.dict[key][1])
+            self.todoLayout.addWidget(self.dict[key][2], int(key[4]), 0)
+
         self.add_todo = QPushButton('New')
         self.add_todo.clicked.connect(self.newTask)
         
