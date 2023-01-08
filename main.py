@@ -1,4 +1,5 @@
-from PyQt5.QtWidgets import QApplication, QWidget, QGroupBox, QGridLayout, QPushButton
+from PyQt5.QtWidgets import (QApplication, QWidget, QGridLayout, QPushButton,QMenuBar, QMenu)
+import json
 from module_pack.todo import ToDoDialog
 
 #Main Window Class
@@ -26,20 +27,24 @@ class ToDoMainWindow(QWidget):
         self.button_next = QPushButton('Next')
         
         #I'm going to show the miniatures here
-        todoLayout.addWidget(self.todoN1, 0, 0, 1, 2)
-        todoLayout.addWidget(self.todoN2, 0, 2 ,1, 2)
-        todoLayout.addWidget(self.todoN3, 1, 0, 1, 2)
-        todoLayout.addWidget(self.todoN4, 1, 2, 1, 2)
+        
+        task1 = ToDoDialog()
+        task2 = ToDoDialog()
+        task3 = ToDoDialog()
+        task4 = ToDoDialog()
+        todoLayout.addWidget(task1, 1, 0, 1, 2)
+        todoLayout.addWidget(task2, 1, 2, 1, 2)
+        todoLayout.addWidget(task3, 2, 0, 1, 2)
+        todoLayout.addWidget(task4, 2, 2, 1, 2)
         
         #showing the main window buttons
-        todoLayout.addWidget(self.button_new, 2, 0)
-        todoLayout.addWidget(self.button_something, 2, 1)
-        todoLayout.addWidget(self.button_previous, 2, 2)
-        todoLayout.addWidget(self.button_next, 2, 3)
-        
+        todoLayout.addWidget(self.button_new, 3, 0)
+        todoLayout.addWidget(self.button_something, 3, 1)
+        todoLayout.addWidget(self.button_previous, 3, 2)
+        todoLayout.addWidget(self.button_next, 3, 3)
         
         self.setLayout(todoLayout)
-
+    
 #Executs the program
 if __name__ == '__main__':
     import sys
