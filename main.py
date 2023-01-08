@@ -32,16 +32,16 @@ class ToDoMainWindow(QWidget):
         task2 = ToDoDialog()
         task3 = ToDoDialog()
         task4 = ToDoDialog()
-        todoLayout.addWidget(task1, 1, 0, 1, 2)
-        todoLayout.addWidget(task2, 1, 2, 1, 2)
-        todoLayout.addWidget(task3, 2, 0, 1, 2)
-        todoLayout.addWidget(task4, 2, 2, 1, 2)
+        todoLayout.addWidget(task1, 2, 0, 1, 2)
+        todoLayout.addWidget(task2, 2, 2, 1, 2)
+        todoLayout.addWidget(task3, 3, 0, 1, 2)
+        todoLayout.addWidget(task4, 3, 2, 1, 2)
         
         #showing the main window buttons
-        todoLayout.addWidget(self.button_new, 3, 0)
-        todoLayout.addWidget(self.button_something, 3, 1)
-        todoLayout.addWidget(self.button_previous, 3, 2)
-        todoLayout.addWidget(self.button_next, 3, 3)
+        todoLayout.addWidget(self.button_new, 1, 0)
+        todoLayout.addWidget(self.button_something, 1, 1)
+        todoLayout.addWidget(self.button_previous, 1, 2)
+        todoLayout.addWidget(self.button_next, 1, 3)
         
         self.setLayout(todoLayout)
     
